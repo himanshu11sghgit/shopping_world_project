@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Profile{% endblock title %}
+
+
+{% block main-content %}
+   <div class="container my-5">
+         <div class="row">
+            <h3>Welcome {{request.user|capfirst}}</h3>
+            <div class="col-sm-2 border-end">
+               <ul class="list-unstyled">
+                  <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{active}}">Profile</a></li>
+                  <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+               </ul>
+            </div>
+            <div class="col-sm-9 offset-sm-1 text-center">
+                {% include 'core/messages.html' %}
+               <h3 class="alert alert-success">Profile Details</h3>
+            <div>
+               
+
+               <hr>
+      
+               {% include 'core/form.html' %}
+            </div>
+{% endblock %}

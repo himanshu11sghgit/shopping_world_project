@@ -1,0 +1,13 @@
+{% for item in items %}
+<div class="col-sm-4 text-center mb-4">
+    <a href="{% url 'product_detail' item.id %}" class="btn">
+
+        <div class="item">
+            <img src="{{item.product_image.url}}" alt="" class="img-fluid img-thumbnail">
+            <div class="fw-bold">{{item.title}}</div>
+            <div class="fw-bold">&#8377; {{item.discounted_price}} <small class="fw-light text-decoration-line-through">&#8377; {{item.selling_price}}</small></div> <br>
+            <a href="{% url 'add_to_cart' %}" class="btn btn-sm btn-primary shadow px-3 py-2 mr-2">Add to Cart</a>
+        </div>
+    </a>
+</div>
+{% endfor %}

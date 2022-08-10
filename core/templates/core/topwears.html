@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Topwears{% endblock title %}
+
+
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="{% url 'topwears' %}" class="list-group-item list-group-item-action">All Topwears</a>
+                    <a href="{% url 'topwears_data' 'Below' %}" class="list-group-item list-group-item-action">Below - 2000</a>
+                    <a href="{% url 'topwears_data' 'Above' %}" class="list-group-item list-group-item-action">2000 - Above</a>
+                    <a href="{% url 'topwears_data' 'Adidas' %}" class="list-group-item list-group-item-action">Adidas</a>
+                    <a href="{% url 'topwears_data' 'Puma' %}" class="list-group-item list-group-item-action">Puma</a>
+                    <a href="{% url 'topwears_data' 'Titan' %}" class="list-group-item list-group-item-action">Titan</a>
+                    <a href="{% url 'topwears_data' 'Nicky' %}" class="list-group-item list-group-item-action">Nicky</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    {% for item in items %}
+                        <div class="col-sm-4 text-center mb-4">
+                            <a href="{% url 'product_detail' item.id %}" class="btn">
+
+                                <div class="item">
+                                    <img src="{{item.product_image.url}}" alt="" class="img-fluid img-thumbnail">
+                                    <div class="fw-bold">{{item.title}}</div>
+                                    <div class="fw-bold">&#8377; {{item.discounted_price}} <small class="fw-light text-decoration-line-through">&#8377; {{item.selling_price}}</small></div> <br>
+                                    <a href="{% url 'add_to_cart' %}" class="btn btn-sm btn-primary shadow px-3 py-2 mr-2">Add to Cart</a>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}

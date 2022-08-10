@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Login{% endblock title %}
+
+
+{% block main-content %}
+   <div class="container">
+      <div class="row my-3">
+         <div class="col-sm-6 offset-sm-3">
+            <h3 class="mt-5">Login</h3>
+            {% include 'core/messages.html' %}
+
+            <hr>
+
+            {% include 'core/form.html' %}
+            
+      </div>
+   </div>
+{% endblock main-content %}

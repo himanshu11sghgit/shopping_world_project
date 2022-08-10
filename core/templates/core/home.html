@@ -1,0 +1,136 @@
+{% extends 'core/base.html' %} 
+{% load static %} 
+
+
+{% block title %} Home {%endblock title %} 
+
+
+{% block banner_slider %}
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'core/images/banner/b1.jpg' %}" class="d-block w-100" alt="..."/>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/images/banner/b2.jpg' %}" class="d-block w-100" alt="..."/>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/images/banner/b3.jpg' %}" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/images/banner/b4.jpg' %}" class="d-block w-100" alt="..." />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+{% endblock banner_slider %} 
+
+
+{% block livesale %}
+    <div class="container">
+        <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+            <h1>SALE IS LIVE NOW</h1>
+            <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+            <small class="fw-lighter">Term and Condition corelied (For details visit Bank's officialWebsite)</small>
+        </div>
+    </div>
+{% endblock livesale %} 
+
+
+{% block main-content %}
+    <div class="m-3">
+        <h2>T-Shirts</h2>
+        <div class="owl-carousel" id="slider1">
+            {% for tw in topwears %}
+                <a href="{% url 'product_detail' tw.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{tw.product_image.url}}" alt="" height="200p">
+                        <span class="fw-bold">{{tw.title}}</span><br/><span class="fs-5">Rs. {{tw.discounted_price}}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img src="{% static 'core/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img src="{% static 'core/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img src="{% static 'core/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img src="{% static 'core/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-3">
+        <h2>Jeans</h2>
+        <div class="owl-carousel" id="slider2">
+            {% for bw in bottomwears %}
+                <a href="{% url 'product_detail' bw.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{bw.product_image.url}}" alt="" height="200p"/>
+                        <span class="fw-bold">{{bw.title}}</span><br/><span class="fs-5">Rs. {{bw.discounted_price}}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mx-3">
+        <h2>Mobiles</h2>
+        <div class="owl-carousel" id="slider3">
+            {% for mob in mobiles %}
+                <a href="{% url 'product_detail' mob.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{mob.product_image.url}}" alt="" height="200p" >
+                        <span class="fw-bold">{{mob.title}}</span><br/><span class="fs-5">Rs. {{mob.discounted_price}}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mx-3">
+        <h2>Laptops</h2>
+        <div class="owl-carousel" id="slider4">
+            {% for lap in laptops %}
+                <a href="{% url 'product_detail' lap.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{lap.product_image.url}}" alt="" height="200p" >
+                        <span class="fw-bold">{{mob.title}}</span><br/><span class="fs-5">Rs. {{lap.discounted_price}}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+      </div>
+{% endblock main-content %}

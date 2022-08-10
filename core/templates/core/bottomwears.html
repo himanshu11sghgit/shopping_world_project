@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Bottomwears{% endblock title %}
+
+
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="{% url 'bottomwears' %}" class="list-group-item list-group-item-action">All Bottomwears</a>
+                    <a href="{% url 'bottomwears_data' 'Below' %}" class="list-group-item list-group-item-action">Below - 2000</a>
+                    <a href="{% url 'bottomwears_data' 'Above' %}" class="list-group-item list-group-item-action">2000 - Above</a>
+                    <a href="{% url 'bottomwears_data' 'Adidas' %}" class="list-group-item list-group-item-action">Adidas</a>
+                    <a href="{% url 'bottomwears_data' 'Puma' %}" class="list-group-item list-group-item-action">Puma</a>
+                    <a href="{% url 'bottomwears_data' 'Titan' %}" class="list-group-item list-group-item-action">Titan</a>
+                    <a href="{% url 'bottomwears_data' 'Nicky' %}" class="list-group-item list-group-item-action">Nicky</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    {% include 'core/items.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}

@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Mobile{% endblock title %}
+
+
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="{% url 'mobiles' %}" class="list-group-item list-group-item-action">All Mobiles</a>
+                    <a href="{% url 'mobiles_data' 'Below' %}" class="list-group-item list-group-item-action">Below - 10000</a>
+                    <a href="{% url 'mobiles_data' 'Above' %}" class="list-group-item list-group-item-action">10000 - Above</a>
+                    <a href="{% url 'mobiles_data' 'Redmi' %}" class="list-group-item list-group-item-action">Redmi</a>
+                    <a href="{% url 'mobiles_data' 'Realme' %}" class="list-group-item list-group-item-action">Realme</a>
+                    <a href="{% url 'mobiles_data' 'Samsung' %}" class="list-group-item list-group-item-action">Samsung</a>
+                    <a href="{% url 'mobiles_data' 'OnePlus' %}" class="list-group-item list-group-item-action">OnePlus</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    {% include 'core/items.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}
